@@ -9,7 +9,7 @@ public class SpringMain {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:config.xml");
         AnimalDao animalDao = applicationContext.getBean(AnimalDao.class);
-//        Animal animal1 = new Animal();
+        Animal animal1 = new Animal();
 //        animal1.setName("fish");
 //        animal1.setColor("red");
 //        animal1.setAge(1);
