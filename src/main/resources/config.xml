@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- DB数据源配置 -->
+    <bean id="datasource" class="com.alibaba.druid.pool.DruidDataSource">
+        <!-- 设置数据库驱动类全名，让Spring知道连接的是哪一种数据库-->
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/yuanqin"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123"/>
+    </bean>
+
+    <!-- 创建SqlSession实例，需要指定DataSource、mapper配置文件路径 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="datasource"/>
+        <property name="mapperLocations" value="classpath:mappers/*.xml"/>
+    </bean>
+
+    <!-- 指定spring扫描哪些dao类 -->
+    <bean id="mapperScan" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 指定spring需要扫描的哪些dao文件 -->
+        <property name="basePackage" value="dao"/>
+        <!-- 指向sqlSessionFactoryBean对象 -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+</beans>

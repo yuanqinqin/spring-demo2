@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.AnimalDao">
+    <insert id="insertAnimal" parameterType="com.ins.test.Animal">
+        insert animal value (null,#{name},#{age},#{color})
+    </insert>
+
+    <select id="selectAnimal" resultType="com.ins.test.Animal">
+        select * from animal where id = #{id}
+    </select>
+
+    <select id="getByName" resultType="com.ins.test.Animal">
+        select * from animal where name = #{name}
+    </select>
+
+    <update id="updateByName">
+        update animal set age = #{age} where name = #{name}
+    </update>
+
+    <delete id="deleteByName" >
+        delete from animal where name = #{name}
+    </delete>
+</mapper>
