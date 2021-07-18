@@ -18,7 +18,7 @@ public class SpringMain {
         Animal animal2 = animalDao.selectAnimal(1);
         System.out.println("id为1的Animal是：" + animal2.getName() + "，它的颜色是：" + animal2.getColor() + "，年龄是：" + animal2.getAge());
 
-        int i = animalDao.updateByName("fish",4);
+        int i = animalDao.updateByName("fish",5);
 
         Animal animal3 = animalDao.getByName("fish");
         System.out.println("name为fish的Animal的id是：" + animal3.getId() + "，它的颜色是：" + animal3.getColor() + "，年龄是：" + animal3.getAge());
